@@ -1,0 +1,63 @@
+issues:
+  new: true
+linters-settings:
+  unparam:
+    check-exported: true
+  wrapcheck:
+    ignoreSigs:
+      - errors.New(
+      - .Wrap(
+      - .Wrapf(
+      - fmt.Errorf(
+  gocognit:
+    min-complexity: 30
+  wsl:
+    # See https://github.com/bombsimon/wsl/blob/master/doc/configuration.md for
+    # documentation of available settings. These are the defaults for
+    # `golangci-lint`.
+    allow-assign-and-anything: true
+    allow-assign-and-call: true
+    allow-cuddle-declarations: true
+    allow-trailing-comment: true
+  errcheck:
+    check-type-assertions: true
+    check-blank: true
+  errchkjson:
+    report-no-exported: true
+  gocritic:
+    enabled-tags:
+      - diagnostic
+      - experimental
+      - opinionated
+      - style
+      - performance
+    disabled-checks:
+      - dupImport # https://github.com/go-critic/go-critic/issues/845
+      - unnamedResult
+      - whyNoLint
+      - captLocal
+      - commentedOutCode
+  govet:
+    check-shadowing: true
+linters:
+  enable:
+    - errcheck
+    - bodyclose
+    - containedctx
+    - contextcheck
+    - ireturn
+    - errorlint
+    - dupword
+    - gosmopolitan
+    - nlreturn
+    - wsl
+    - ineffassign
+    - sqlclosecheck
+    - exportloopref
+    - gomnd
+    - errname
+    - gocyclo
+    - gocognit
+    - wrapcheck
+    - asasalint
+    - govet
